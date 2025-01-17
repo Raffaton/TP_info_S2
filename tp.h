@@ -11,4 +11,6 @@ typedef struct {
     int nb_menus;
 }Application;
 
+void displayMenu(const Application* app);
+
 #endif 

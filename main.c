@@ -2,11 +2,15 @@
 #include "tp.h"
 
 int main (){
-    Application appli1;
-    Menu menu1;
+    Menu photoMenus[] = {{"Regarder une photo"}, {"Prendre une photo"}};
 
+    Application photoApp = {
+        "Photo", photoMenus, 2
+    };
+    
+    displayMenu(&photoApp);
     return 0;
 }
 
 // gcc "./*.c" -o main.exe
-// main.exe
+// .\main.exe
