@@ -29,3 +29,25 @@ void runApplication(const Application* app) {
         }
     }
 }
+
+void runPhone(Application* app1, Application* app2) {
+    int choix;
+    printf("---- Application ----\n");
+    printf("1. %s\n", app1->nom);
+    printf("2. %s\n", app2->nom);
+    printf("0. Quitter\n");
+    printf("Choisissez une option : ");
+    scanf("%d", &choix);
+    
+    switch (choix) {
+        case 0:
+            printf("Vous avez quitte votre telephone !");
+            break;
+        case 1:
+            runApplication(app1);
+            break;
+        case 2:
+            runApplication(app2);
+            break;
+    }
+}

@@ -3,12 +3,17 @@
 
 int main (){
     Menu photoMenus[] = {{"Regarder une photo"}, {"Prendre une photo"}};
+    Menu messageMenus[] = {{"Lire un message"}, {"Envoyer un message"}};
 
     Application photoApp = {
         "Photo", photoMenus, 2
     };
+
+    Application messageApp = {
+        "Messages", messageMenus, 2
+    };
     
-    runApplication(&photoApp);
+    runPhone(&photoApp, &messageApp);
     return 0;
 }
 
