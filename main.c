@@ -8,7 +8,7 @@ int main (){
         "Photo", photoMenus, 2
     };
     
-    displayMenu(&photoApp);
+    runApplication(&photoApp);
     return 0;
 }
 
