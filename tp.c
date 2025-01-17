@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "tp.h"
 
 void displayMenu(const Application* app) {
@@ -35,6 +36,8 @@ void runPhone(Application* app1, Application* app2) {
     printf("---- Application ----\n");
     printf("1. %s\n", app1->nom);
     printf("2. %s\n", app2->nom);
+    printf("3. Modifier le menu de '%s'\n", app1->nom);
+    printf("4. Modifier l'application '%s'\n", app2->nom);
     printf("0. Quitter\n");
     printf("Choisissez une option : ");
     scanf("%d", &choix);
@@ -49,5 +52,35 @@ void runPhone(Application* app1, Application* app2) {
         case 2:
             runApplication(app2);
             break;
+        case 3:
+            int menuIndex;
+            char newOption[100];
+            printf("Entrez l'index du menu à modifier (1-%d) : ", app1->nb_menus);
+            scanf("%d", &menuIndex);
+            printf("Entrez la nouvelle option : ");
+            getchar();
+            fgets(newOption, sizeof(newOption), stdin);
+            
+        
     }
+}
+
+void updateMenu(Application* app, int menuIndex, const char* newOption) {
+    while(1) {
+        if (menuIndex <= 0 || menuIndex > app->nb_menus) {
+            printf("Index invalide! Veuillez choisir entre 1 et %d\n", app->nb_menus);
+            continue;
+        }
+    
+        app->menus[menuIndex - 1].option = newOption;
+        printf("Option de menu mise à jour avec succes !\n");
+        break;
+    }
+}
+
+void updateApplication(Application* app, const char* newName, Menu* newMenus, int newMenuCount) {
+    app->nom = newName;
+    app->menus = newMenus;
+    app->nb_menus = newMenuCount;
+    printf("Application mise à jour avec succes !\n");
 }
